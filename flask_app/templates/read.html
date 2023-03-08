@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <main style="width:1000px; margin:0 auto;margin-top: 50px;">
+        <h3>Cookie Orders</h3>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Cookie Type</th>
+                <th scope="col">Number of Boxes</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for order in orders%}
+              <tr>
+                <th scope="row"></th>
+                <td>{{order['name']}}</td>
+                <td>{{order['cookie_type']}}</td>
+                <td>{{order['number']}}</td>
+                <td>
+                  <a href="/cookies/edit/{{order['id']}}">Edit</a>
+                </td>
+              </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+        <a href="/cookies/new">+ New Order</a>
+        
+
+    </main>
+    
+</body>
+</html>
